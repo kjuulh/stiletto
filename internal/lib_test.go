@@ -17,11 +17,11 @@ func TestIsEntry(t *testing.T) {
 	})
 	uut.SetFeatureStore("user", featureStore)
 
-	isEntry, err := uut.GetCapture(context.Background(), "user", userId)
+	isEntry, err := uut.GetFeature(context.Background(), "user", userId)
 	require.NoError(t, err)
 	require.True(t, isEntry)
 
-	isNotEntry, err := uut.GetCapture(context.Background(), "user", "not a correct user id")
+	isNotEntry, err := uut.GetFeature(context.Background(), "user", "not a correct user id")
 	require.NoError(t, err)
 	require.False(t, isNotEntry)
 }
