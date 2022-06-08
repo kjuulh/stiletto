@@ -10,16 +10,14 @@ Stiletto
 
 ## About
 
-Stiletto is a fully customizable and extensible feature store
-built for looking up certain queries in production. One my pains
-has been allowing certain actions to happen for users currently
-under investigation. I could have built a one of table to do lookups,
-but a more generalized solution could come in handy for the rest of
-my team and hopefully company.
+Stiletto is a fully customizable and extensible feature store built for looking up certain queries in production. One my
+pains has been allowing certain actions to happen for users currently under investigation. I could have built a one of
+table to do lookups, but a more generalized solution could come in handy for the rest of my team and hopefully company.
 
 Stiletto works of off the assumption that sometimes you want a fast lookup for simple things such as user ids, device
-ids and such. Stiletto provides various different stores for different needs, some will allow refreshing of data on each
-query, others cache data to allow maximum speed and highest throughput. These can be combined, such as an.
+ids and such, these may be ingest from third-party systems, but you want fast access to them. Stiletto provides various
+different stores for different needs, some will allow refreshing of data on each query, others cache data to allow
+maximum speed and highest throughput. These can be combined, such as:.
 
 ```go
 package main
@@ -49,7 +47,7 @@ the server. However, it isn't a requirement. Though running it on the server pro
 usability.
 
 Stiletto on the server provides a robust toolkit for integrating with third-parties like Jira, Trello, git and so on, to
-fill it's feature stores.
+fill its feature stores.
 
 ## Built With
 
@@ -98,6 +96,31 @@ func main() {
 	}
 }
 ```
+
+### Server (TBD)
+
+## Features
+
+- See examples repo
+
+## Roadmap
+
+- [ ] Server part (Library)
+    - [ ] Database setup
+    - [ ] Handlers for data ingest
+    - [ ] API
+- [ ] Server standalone
+    - [ ] TBD
+- [ ] Configurable stores on the client
+    - [x] Base design and early concept
+    - [ ] Eager loading
+    - [ ] In memory caching
+    - [ ] Remote client
+
+## Contributing
+
+Right now we're not looking for contributors, as the project is in a rough state. However, any bug fixes and feature
+requests are always welcome. Please follow CONTRIBUTING.md for further info
 
 ## Misc
 
