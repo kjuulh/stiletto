@@ -22,20 +22,25 @@ ids and such. Stiletto provides various different stores for different needs, so
 query, others cache data to allow maximum speed and highest throughput. These can be combined, such as an.
 
 ```go
-sClient := NewStilettoClient().
-SetFeatureStore(
-"userIDs",
-NewEagerFeatureStore,
-NewCacheableFeatureStore,
-NewRemoteFeatureStore("https://some-url-to-do-lookup/users/"))
+package main
 
-featureActive, err := sClient.GetFeature(
-context.Background(),
-"userIDs",
-"some-user-id")
-if featureActive {
-log.Debugf("user: %s has transferred: %d to %s", userID, amount, otherUserID)
-dumpStore.DumpIntermediaryState( ... )
+func main() {
+
+	sClient := NewStilettoClient().
+		SetFeatureStore(
+			"userIDs",
+			NewEagerFeatureStore,
+			NewCacheableFeatureStore,
+			NewRemoteFeatureStore("https://some-url-to-do-lookup/users/"))
+
+	featureActive, err := sClient.GetFeature(
+		context.Background(),
+		"userIDs",
+		"some-user-id")
+	if featureActive {
+		log.Debugf("user: %s has transferred: %d to %s", userID, amount, otherUserID)
+		dumpStore.DumpIntermediaryState( ... )
+	}
 }
 ```
 
@@ -78,7 +83,7 @@ func main() {
 	sClient := client.NewStilettoClient().
 		SetFeatureStore(
 			"userIDs",
-			featurestores.NewInMemoryFeatureStore([]string {"some-user-id"}))
+			featurestores.NewInMemoryFeatureStore([]string{"some-user-id"}))
 
 	featureActive, err := sClient.GetFeature(
 		context.Background(),
