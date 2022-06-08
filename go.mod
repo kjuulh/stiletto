@@ -1,4 +1,4 @@
-module git.front.kjuulh.io/stiletto/stiletto
+module github.com/kjuulh/stiletto
 
 go 1.18
 

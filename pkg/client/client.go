@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 	"fmt"
-	"git.front.kjuulh.io/stiletto/stiletto/pkg/featurestores"
+	"github.com/kjuulh/stiletto/pkg/featurestores"
 )
 
 type StilettoClient interface {

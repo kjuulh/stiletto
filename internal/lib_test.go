@@ -2,8 +2,8 @@ package internal
 
 import (
 	"context"
-	"git.front.kjuulh.io/stiletto/stiletto/pkg/client"
-	"git.front.kjuulh.io/stiletto/stiletto/pkg/featurestores"
+	"github.com/kjuulh/stiletto/pkg/client"
+	"github.com/kjuulh/stiletto/pkg/featurestores"
 	"github.com/stretchr/testify/require"
 	"testing"
 )
