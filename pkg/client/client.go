@@ -7,7 +7,7 @@ import (
 )
 
 type StilettoClient interface {
-	SetFeatureStore(featureKey string, store featurestores.FeatureStore)
+	SetFeatureStore(featureKey string, store featurestores.FeatureStore) StilettoClient
 	GetFeature(ctx context.Context, featureKey string, queryKey string) (bool, error)
 }
 
@@ -21,8 +21,10 @@ func NewStilettoClient() StilettoClient {
 	}
 }
 
-func (c client) SetFeatureStore(featureKey string, store featurestores.FeatureStore) {
+func (c *client) SetFeatureStore(featureKey string, store featurestores.FeatureStore) StilettoClient {
 	c.features[featureKey] = store
+
+	return c
 }
 
 func (c client) GetFeature(ctx context.Context, featureKey string, queryKey string) (bool, error) {
