@@ -8,7 +8,7 @@ import (
 
 type StilettoClient interface {
 	SetFeatureStore(featureKey string, store featurestores.FeatureStore)
-	GetCapture(ctx context.Context, featureKey string, queryKey string) (bool, error)
+	GetFeature(ctx context.Context, featureKey string, queryKey string) (bool, error)
 }
 
 type client struct {
@@ -25,7 +25,7 @@ func (c client) SetFeatureStore(featureKey string, store featurestores.FeatureSt
 	c.features[featureKey] = store
 }
 
-func (c client) GetCapture(ctx context.Context, featureKey string, queryKey string) (bool, error) {
+func (c client) GetFeature(ctx context.Context, featureKey string, queryKey string) (bool, error) {
 	feature, ok := c.features[featureKey]
 	if !ok {
 		return false, fmt.Errorf("feature not found. feature: %s", featureKey)
