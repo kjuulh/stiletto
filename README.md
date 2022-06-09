@@ -113,9 +113,9 @@ func main() {
     - [ ] TBD
 - [ ] Configurable stores on the client
     - [x] Base design and early concept
-    - [ ] Eager loading
-    - [ ] In memory caching
-    - [ ] Remote client
+    - [x] Eager loading
+    - [x] In memory caching
+    - [x] Remote client (http)
 
 ## Contributing
 
